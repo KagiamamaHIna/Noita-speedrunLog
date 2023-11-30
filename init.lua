@@ -1,6 +1,7 @@
 --程序初始化
 --移除文本内容
-io.open("speedrunLog.txt","w"):close()
+os.execute("del speedrunLog.txt")
+--io.open("speedrunLog.txt","w"):close()
 function OnPlayerSpawned( player_entity )--当玩家加载的时候
     local file = io.open("speedrunLog.txt", "a")
     io.output(file)
