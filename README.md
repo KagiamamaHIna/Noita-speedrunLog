@@ -6,3 +6,5 @@
 兼容这个asl：https://gist.github.com/Dregu/f1b19e91989b93c908f2d2d642bf922c
 
 只需要正确指定路径即可
+
+直接下载仓库zip，解压成文件夹内包含这些文件即可使用
