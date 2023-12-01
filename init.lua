@@ -22,8 +22,8 @@ function OnPlayerDied()--当玩家死亡的时候
     io.close(file)
 end
 
-function OnWorldPreUpdate()--监听玩家是否完成了伟大之作
-    local deepest_hm = tonumber( GlobalsGetValue( "HOLY_MOUNTAIN_DEPTH", "0" ) )
+function OnWorldPreUpdate()
+    local deepest_hm = tonumber( GlobalsGetValue( "HOLY_MOUNTAIN_DEPTH", "0" ) )--监听圣山
     if deepest_hm > HolyMountainValue then
         HolyMountainValue = deepest_hm
         local hm_visits = GlobalsGetValue( "HOLY_MOUNTAIN_VISITS", "0" )
@@ -32,10 +32,10 @@ function OnWorldPreUpdate()--监听玩家是否完成了伟大之作
         io.write("uusi HM " .. hm_visits .. "\n")
         io.close(file)
     end
-    if WSComponent ~= nil then
+    if WSComponent ~= nil then--监听玩家是否完成了伟大之作
         local down = ComponentGetValue2(WSComponent,"EVERYTHING_TO_GOLD")
         local up = ComponentGetValue2(WSComponent,"INFINITE_GOLD_HAPPENING")
-        if tostring(down) == "false" and tostring(up) == "false" then
+        if not down and not up then
             return
         end
         IsSampoUse = true
